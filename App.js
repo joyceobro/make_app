@@ -15,7 +15,7 @@ import StartButton from './components/StartButton';
         this.setState({content:text}); // 바뀐 내용으로 텍스트 저장
       }}
       />
-      <StartButton showAlert={()=> Alert.alert(this.state.content)} />
+      <StartButton showAlert={()=>Alert.alert(this.state.content)} disabled={this.state.content.length>0 ? false:true} />
     </View>
   );
  }
