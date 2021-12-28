@@ -1,9 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Alert, TextInput } from 'react-native'; //버튼부품을 리액트네이티브에서
-import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
+import StartButton from './components/StartButton';
 
-export default class App extends React.Component {
+
+ export default class App extends React.Component {
   state={
     content: '',
   };
@@ -15,20 +15,10 @@ export default class App extends React.Component {
         this.setState({content:text}); // 바뀐 내용으로 텍스트 저장
       }}
       />
-      <TouchableOpacity
-        activeOpacity={0.8} //기본이 0.2
-        onPress={() => {  //조건이 충족될시에 실행하라는 뜻
-          Alert.alert(this.state.content)
-        }}
-      >
-        <View style={styles.box}>
-          <Text style={styles.first}>시작하기</Text>
-        </View>
-        </TouchableOpacity>
-
+      <StartButton showAlert={()=> Alert.alert(this.state.content)} />
     </View>
   );
-}
+ }
 }
 const styles = StyleSheet.create({
   container: {
